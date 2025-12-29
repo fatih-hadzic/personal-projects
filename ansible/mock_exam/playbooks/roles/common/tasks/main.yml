@@ -1,0 +1,14 @@
+- name: Ensure directory exists
+  become: true
+  ansible.builtin.file:
+    path: /opt/app
+    state: directory
+    mode: '0755'
+
+- name: Create a file in local group
+  ansible.builtin.copy:
+    dest: /opt/app/local_group.txt
+    content: |
+      Hosts: {{ inventory_hostname }}
+      Group: local
+  when: "'local' in group_names"
