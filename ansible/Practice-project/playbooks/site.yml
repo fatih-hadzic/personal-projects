@@ -1,0 +1,5 @@
+- name: Prepare application base
+  hosts: all
+  gather_facts: false
+  roles:
+    - app_base
