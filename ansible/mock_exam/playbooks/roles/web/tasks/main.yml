@@ -1,7 +1,0 @@
-- name: Build a web txt file
-  ansible.builtin.copy:
-    dest: /opt/app/web_group.txt
-    content: |
-      Hosts: {{ inventory_hostname }}
-      Group: web
-  when: "'web' in group_names"
